@@ -1,10 +1,10 @@
 import './App.css'
-import Search from './components/Search/Search';
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
     <>
-      <Search/>
+      <Layout/>
     </>
   )
 }

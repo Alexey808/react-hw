@@ -1,0 +1,10 @@
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 100%;
+  width: 100%; */
+}
+.link-button:hover {
+  cursor: pointer;
+}

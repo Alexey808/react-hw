@@ -1,0 +1,20 @@
+
+.menu {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  font-weight: 600;
+  gap: 16px;
+}
+.menu-item {
+  padding: 16px 12px;
+}
+.menu-label {}
+.otification-icon {}
+.label {}
+.exit-icon {
+  display: grid;
+  align-items: center;
+  margin-left: 8px;
+}
+
