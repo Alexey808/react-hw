@@ -1,4 +1,4 @@
-import './Menu.css';
+import styles from './Menu.module.css';
 import LinkButton from '../../shared/components/LinkButton/LinkButton';
 import exitIcon from '../../assets/exit.svg';
 import userIcon from '../../assets/user.svg';
@@ -7,33 +7,33 @@ function Menu() {
   const hasUser = false;
 
   return (
-    <menu className="menu">
-      <div className="menu-item">
+    <menu className={styles.menu}>
+      <div className={styles['menu-item']}>
         <LinkButton>
           <div>Поиск фильмов</div>
         </LinkButton>
       </div>
 
-      <div className="menu-item">
+      <div className={styles['menu-item']}>
         <LinkButton>
-          <span className="menu-label">Мои фильмы</span>
-          <span className="notification-icon"></span>
+          <span>Мои фильмы</span>
+          <span className={styles['notification-icon']}></span>
         </LinkButton>
       </div>
 
-      <div className="menu-item">
+      <div className={styles['menu-item']}>
         <LinkButton>
           {hasUser ? (
             <>
-              <span className="label">Выйти</span>
-              <span className="exit-icon">
+              <span>Выйти</span>
+              <span className={styles['exit-icon']}>
                 <img src={userIcon}/>
               </span>
             </>
           ) : (
             <>
-              <span className="label">Войти</span>
-              <span className="exit-icon">
+              <span>Войти</span>
+              <span className={styles['exit-icon']}>
                 <img src={exitIcon}/>
               </span>
             </>

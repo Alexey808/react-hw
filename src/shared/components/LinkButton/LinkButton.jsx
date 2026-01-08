@@ -1,8 +1,8 @@
-import './LinkButton.css';
+import styles from "./LinkButton.module.css";
 
 function LinkButton({children}) {
   return (
-    <a className="link-button">{children}</a>
+    <a className={styles['link-button']}>{children}</a>
   )
 }
 

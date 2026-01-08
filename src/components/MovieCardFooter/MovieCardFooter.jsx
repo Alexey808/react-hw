@@ -1,7 +1,8 @@
-import "./MovieCardFooter.css";
+import styles from "./MovieCardFooter.module.css";
 import SvgLogo from "../../shared/components/SvgLogo/SvgLogo";
 import likeIcon from "../../assets/like.svg";
-import { useState } from 'react';
+import { useState } from "react";
+import cn from "classnames";
 
 export default function MovieCardFooter({moveId}) {
   const [userFavoriteMovieIds, setUserFavoriteMoveIds] = useState([5]);
@@ -20,7 +21,9 @@ export default function MovieCardFooter({moveId}) {
   }
 
   return (
-    <div className={`move-card-footer${isFavorites ? ' has-favorites' : ''}`}>
+    <div className={cn(styles['move-card-footer'], {
+      [styles['has-favorites']]: isFavorites
+    })}>
       <button onClick={handleUserFavoriteMovie}>
         { icon }
         { isFavorites

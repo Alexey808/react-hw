@@ -1,12 +1,12 @@
-import "./MovieCard.css";
+import styles from "./MovieCard.module.css";
 import rateIcon from "../../assets/star.svg";
-import MovieCardFooter from '../MovieCardFooter/MovieCardFooter';
+import MovieCardFooter from "../MovieCardFooter/MovieCardFooter";
 
 
 export default function MovieCard({move}) {
   const { id, name, rate, poster } = move;
 
-  const posterStyle = {
+  const posterInlineStyle = {
     backgroundImage: `url(${poster})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -14,13 +14,13 @@ export default function MovieCard({move}) {
   };
 
   return (
-    <div className="movie-card">
-      <div className="rate-block">
+    <div className={styles['movie-card']}>
+      <div className={styles['rate-block']}>
         <img src={rateIcon} alt="Рейтинг"/>
         {rate}
       </div>
-      <div className="poster" style={posterStyle}></div>
-      <div className="name">
+      <div className={styles.poster} style={posterInlineStyle}></div>
+      <div className={styles.name}>
         {name}
       </div>
       <MovieCardFooter moveId={id}/>
