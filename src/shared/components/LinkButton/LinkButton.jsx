@@ -1,8 +1,8 @@
 import styles from "./LinkButton.module.css";
 
-function LinkButton({children}) {
+function LinkButton({children, ...props}) {
   return (
-    <a className={styles['link-button']}>{children}</a>
+    <a {...props} className={styles['link-button']}>{children}</a>
   )
 }
 
