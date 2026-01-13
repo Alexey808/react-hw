@@ -3,14 +3,16 @@ import Title from "../../shared/components/Title/Title";
 import Input from "../../shared/components/Input/Input";
 import Button from "../../shared/components/Button/Button";
 import { useLocalStorage } from '../../shared/hooks/useLocalStorage/useLocalStorage';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ActiveUserContext } from '../../shared/contexts/ActiveUserContext/ActiveUserContext.context';
 
 export default function Login() {
   const [user, setUser] = useState(null);
   const [userStore, setUserStore] = useLocalStorage('users');
+  const {setActiveUser} = useContext(ActiveUserContext);
 
   const handleChangeUserName = (e) => {
-    setUser({ name: e.target.value, isLogined: true });
+    setUser({ name: e.target.value, isLogined: false });
   };
 
   const handleEntry = () => {
@@ -18,11 +20,12 @@ export default function Login() {
     const currentUserName = user?.name || '';
 
     if (userNames.includes(currentUserName)) {
-      setUserStore([...(userStore || []).map((item) => {
-        return item.name === currentUserName ? { ...item, isLogined: true } : item;
-      })]);
+      const cacheUser = userStore.find((item) => item.name === currentUserName);
+      setActiveUser({...cacheUser, isLogined: true});
     } else {
-      setUserStore([...(userStore || []), user]);
+      const newUser = {...user, isLogined: true};
+      setUserStore([...(userStore || []), newUser]);
+      setActiveUser(newUser);
     }
   };
 
@@ -34,5 +37,5 @@ export default function Login() {
         <Button label="Войти в профиль" onClick={handleEntry}/>
       </div>
     </div>
-  )
+  );
 }

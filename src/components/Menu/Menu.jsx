@@ -2,14 +2,15 @@ import styles from './Menu.module.css';
 import LinkButton from '../../shared/components/LinkButton/LinkButton';
 import exitIcon from '../../assets/exit.svg';
 import userIcon from '../../assets/user.svg';
-import { useActiveUserStorage } from '../../shared/hooks/useActiveUserStorage/useActiveUserStorage';
+import { useContext } from 'react';
+import { ActiveUserContext } from '../../shared/contexts/ActiveUserContext/ActiveUserContext.context';
 
 function Menu() {
-  const [activeUser, setActiveUser, unsetActiveUser] = useActiveUserStorage();
+  const { activeUser, logoutActiveUser } = useContext(ActiveUserContext);
   
   const logout = () => {
     if (activeUser) {
-      unsetActiveUser(activeUser.name);
+      logoutActiveUser();
     }
   };
 
