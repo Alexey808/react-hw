@@ -1,4 +1,4 @@
-import './Search.css';
+import styles from './Search.module.css';
 import { useState } from 'react';
 import Button from '../../shared/components/Button/Button';
 import Hint from '../../shared/components/Hint/Hint';
@@ -11,7 +11,7 @@ function Search() {
   const hint = 'Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.';
   
   const [moveName, setMoveName] = useState('');
-  const handleChangeName = (e) => {
+  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMoveName(e.target.value);
   };
 
@@ -20,17 +20,17 @@ function Search() {
   };
   
   return (
-    <div className="search">
-      <Title title={'Поиск'}/>
+    <div className={styles['search']}>
+      <Title title="Поиск"/>
       <Hint text={hint}/>
-      <div className="search-forms">
+      <div className={styles['search-forms']}>
         <Input
           placeholder="Введите название" 
           onChange={handleChangeName}
           value={moveName}
           srcIcon={searchIcon}
         />
-        <Button label={'Искать'} onClick={handleOnSearch}/>
+        <Button onClick={handleOnSearch}>Искать</Button>
       </div>
     </div>
   )

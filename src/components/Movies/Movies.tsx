@@ -2,16 +2,17 @@ import styles from "./Movies.module.css";
 import { useState } from 'react';
 import { MockMovies } from './MockMovies';
 import MovieCard from '../MovieCard/MovieCard';
+import { Movie } from './Movie.interface';
 
 
 export default function Movies() {
-  const [movies, setMovies] = useState(MockMovies);
+  const [movies, setMovies] = useState<Movie[]>(MockMovies);
 
   return (
     <div className={styles.movies}>
-      {movies.map((move) => {
+      {movies.map((movie) => {
         return (
-          <MovieCard key={move.id} move={move}/>
+          <MovieCard key={movie.id} movie={movie}/>
         );
       })}
     </div>

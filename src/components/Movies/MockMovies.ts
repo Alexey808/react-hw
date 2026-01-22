@@ -7,6 +7,8 @@
 // import move7 from "../../../public/move7.jpg";
 // import move8 from "../../../public/move8.jpg";
 
+import { Movie } from './Movie.interface';
+
 const move1 = "/public/move1.jpg";
 const move2 = "/public/move2.jpg";
 const move3 = "/public/move3.jpg";
@@ -16,7 +18,7 @@ const move6 = "/public/move6.jpg";
 const move7 = "/public/move7.jpg";
 const move8 = "/public/move8.jpg";
 
-export const MockMovies = [
+export const MockMovies: Movie[] = [
   {
     id: 1,
     name: 'Black Window',

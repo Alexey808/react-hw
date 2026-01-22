@@ -1,9 +1,0 @@
-.search {
-  & .search-forms {
-    display: inline-grid;
-    grid-template-columns: auto min-content;
-    gap: 10px;
-  }
-}
-
-

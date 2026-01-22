@@ -3,13 +3,13 @@ import LinkButton from '../../shared/components/LinkButton/LinkButton';
 import exitIcon from '../../assets/exit.svg';
 import userIcon from '../../assets/user.svg';
 import { useContext } from 'react';
-import { ActiveUserContext } from '../../shared/contexts/ActiveUserContext/ActiveUserContext.context';
+import { ActiveUser, ActiveUserContext } from '../../shared/contexts/ActiveUserContext/ActiveUserContext.context';
 
 function Menu() {
-  const { activeUser, logoutActiveUser } = useContext(ActiveUserContext);
-  
+  const { name, isLogined, logoutActiveUser, setActiveUser } = useContext<ActiveUserContext>(ActiveUser);
+
   const logout = () => {
-    if (activeUser) {
+    if (isLogined && !!logoutActiveUser) {
       logoutActiveUser();
     }
   };
@@ -29,17 +29,17 @@ function Menu() {
         </LinkButton>
       </div>
 
-      { activeUser?.isLogined &&
+      { !!isLogined &&
         <div className={styles['menu-item']}>
           <LinkButton>
-            <span>{activeUser.name}</span>
+            <span>{name}</span>
           </LinkButton>
         </div>
       }
 
       <div className={styles['menu-item']}>
         <LinkButton onClick={logout}>
-          {activeUser?.isLogined ? (
+          {isLogined ? (
             <>
               <span>Выйти</span>
               <span className={styles['exit-icon']}>

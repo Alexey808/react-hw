@@ -1,10 +1,11 @@
 import styles from "./MovieCard.module.css";
 import rateIcon from "../../assets/star.svg";
 import MovieCardFooter from "../MovieCardFooter/MovieCardFooter";
+import { MovieCardProps } from './MovieCard.interface';
 
 
-export default function MovieCard({move}) {
-  const { id, name, rate, poster } = move;
+export default function MovieCard({movie}: MovieCardProps) {
+  const { id, name, rate, poster } = movie;
 
   const posterInlineStyle = {
     backgroundImage: `url(${poster})`,

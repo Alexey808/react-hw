@@ -1,7 +1,8 @@
-import styles from "./Header.module.css";
-import LinkButton from "../../shared/components/LinkButton/LinkButton";
-import Menu from "../Menu/Menu";
-import logoIcon from "../../assets/logo.svg";
+import styles from './Header.module.css';
+import LinkButton from '../../shared/components/LinkButton/LinkButton';
+import Menu from '../Menu/Menu';
+import logoIcon from '../../assets/logo.svg';
+
 
 function Header() {
   return (
