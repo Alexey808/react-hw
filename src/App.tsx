@@ -1,10 +1,11 @@
-import Layout from './components/Layout/Layout';
 import { ActiveUserContextProvider } from './shared/contexts/ActiveUserContext/ActiveUserContextProvider';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router/router.tsx';
 
 function App() {
   return (
     <ActiveUserContextProvider>
-      <Layout/>
+      <RouterProvider router={router}/>
     </ActiveUserContextProvider>
   )
 }

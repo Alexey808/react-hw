@@ -1,5 +1,6 @@
 import { AnchorHTMLAttributes, ReactNode } from 'react';
 
 export interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  children: ReactNode
+  children: ReactNode,
+  url: string,
 }

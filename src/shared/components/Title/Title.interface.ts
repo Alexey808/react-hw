@@ -1,3 +1,5 @@
-export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+import {HTMLAttributes} from 'react';
+
+export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
   title: string;
 }

@@ -1,20 +1,16 @@
-.move-card-footer {
-  margin-left: 8px;
-}
 
-.move-card-footer.has-favorites>button {
+.has-favorites {
   color: rgba(55, 216, 167, 1);
 }
-  
+.has-favorites>svg {
+  color: rgba(55, 216, 167, 1);
+}
+
 svg {
   width: 25px;
   height: 25px;
 }
 
-.move-card-footer.has-favorites>svg {
-  color: rgba(55, 216, 167, 1);
-}
-  
 button {
   background-color: transparent;
   display: grid;

@@ -1,9 +1,17 @@
 import { LinkButtonProps } from './LinkButton.interface';
 import styles from "./LinkButton.module.css";
+import {NavLink} from 'react-router-dom';
+import cn from 'classnames';
 
-function LinkButton({children, ...props}: LinkButtonProps) {
+function LinkButton({children, url, ...props}: LinkButtonProps) {
   return (
-    <a {...props} className={styles['link-button']}>{children}</a>
+    <NavLink to={url} {...props} className={({isActive}) => cn(
+      'default-nav-link',
+      styles['link-button'],
+      { [styles['active']]: isActive }
+    )}>
+      {children}
+    </NavLink>
   )
 }
 

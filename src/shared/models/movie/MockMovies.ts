@@ -1,13 +1,4 @@
-// import move1 from "../../../public/move1.jpg";
-// import move2 from "../../../public/move2.jpg";
-// import move3 from "../../../public/move3.jpg";
-// import move4 from "../../../public/move4.jpg";
-// import move5 from "../../../public/move5.jpg";
-// import move6 from "../../../public/move6.jpg";
-// import move7 from "../../../public/move7.jpg";
-// import move8 from "../../../public/move8.jpg";
-
-import { Movie } from './Movie.interface';
+import {Movie} from './movie.interface.ts';
 
 const move1 = "/public/move1.jpg";
 const move2 = "/public/move2.jpg";
@@ -25,9 +16,10 @@ export const MockMovies: Movie[] = [
     rate: 324,
     poster: move1,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
     duration: 181,
+    description: 'After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos\' actions and restore order to the universe once and for all, no matter what consequences may be in store.'
   },
   {
     id: 2,
@@ -35,9 +27,10 @@ export const MockMovies: Movie[] = [
     rate: 124,
     poster: move2,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
     duration: 181,
+    description: 'After the devastating events ...'
   },
   {
     id: 3,
@@ -45,9 +38,10 @@ export const MockMovies: Movie[] = [
     rate: 235,
     poster: move3,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
     duration: 181,
+    description: 'After the devastating events ...'
   },
   {
     id: 4,
@@ -55,9 +49,10 @@ export const MockMovies: Movie[] = [
     rate: 123,
     poster: move4,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
     duration: 181,
+    description: 'After the devastating events ...'
   },
   {
     id: 5,
@@ -65,9 +60,10 @@ export const MockMovies: Movie[] = [
     rate: 8125,
     poster: move5,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
-    duration: 181
+    duration: 181,
+    description: 'After the devastating events ...'
   },
   {
     id: 6,
@@ -75,9 +71,10 @@ export const MockMovies: Movie[] = [
     rate: 123,
     poster: move6,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
-    duration: 181
+    duration: 181,
+    description: 'After the devastating events ...'
   },
   {
     id: 7,
@@ -85,9 +82,10 @@ export const MockMovies: Movie[] = [
     rate: 12,
     poster: move7,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
-    duration: 181
+    duration: 181,
+    description: 'After the devastating events ...'
   },
   {
     id: 8,
@@ -95,8 +93,9 @@ export const MockMovies: Movie[] = [
     rate: 456,
     poster: move8,
     type: 'Movie',
-    date: new Date().toISOString,
+    date: new Date().toISOString(),
     genre: ['Adventure', 'Science Fiction', 'Action'],
-    duration: 181
+    duration: 181,
+    description: 'After the devastating events ...'
   }
 ]

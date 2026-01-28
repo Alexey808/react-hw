@@ -4,7 +4,8 @@ export interface Movie {
   rate: number;
   poster: string;
   type: string;
-  date: () => string;
+  date: string;
   genre: string[];
   duration: number;
+  description: string;
 }

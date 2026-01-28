@@ -1,0 +1,12 @@
+.movies {
+  margin-top: 100px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.hint {
+  display: grid;
+  justify-content: center;
+  margin-top: 20px;
+  color: var(--additional-text-color);
+}

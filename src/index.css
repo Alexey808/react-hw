@@ -1,11 +1,42 @@
 :root {
-  color: #ffffff;
-  background-color: #1e1e1e;
+  --font-size-large-x2: 32px;
+  --font-size-large: 20px;
+  --font-size-medium: 16px;
+  --font-size-small: 12px;
+
+  --primary-color200: #BEB7FB;
+  --primary-color400: #7B6EF6;
+  --primary-color800: #251E62;
+  --primary-color900: #20283ECC;
+  --primary-card-bg-color: #20283ECC;
+
+  --bg-color: #121829;
+  --additional-text-color: #A8AEBF;
+  --text-color: #FFFFFF;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
   background-image: url('./assets/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   line-height: 24px;
   font-size: 16px;
-  font-family: sans-serif;
+}
+
+.default-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.default-nav-link {
+  color: inherit;
+  text-decoration: inherit;
 }
