@@ -1,0 +1,16 @@
+.rate-block {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 8px 10px 8px 10px;
+  border-radius: 8px;
+  color: rgba(255, 173, 73, 1);
+  line-height: normal;
+}
+
+.rate-block>img {
+  margin-right: 5px;
+  width: 24px;
+  height: 24px;
+}
