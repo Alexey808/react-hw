@@ -1,5 +1,3 @@
-import {Movie} from './movie.interface.ts';
-
 const move1 = "/public/move1.jpg";
 const move2 = "/public/move2.jpg";
 const move3 = "/public/move3.jpg";
@@ -9,7 +7,7 @@ const move6 = "/public/move6.jpg";
 const move7 = "/public/move7.jpg";
 const move8 = "/public/move8.jpg";
 
-export const MockMovies: Movie[] = [
+export const MockMovies: any[] = [
   {
     id: 1,
     name: 'Black Window',

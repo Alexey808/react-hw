@@ -4,7 +4,7 @@ import { MovieCardFooterProps } from './MovieCardFooter.interface.ts';
 import FavoriteButton from '../../../FavoriteButton/FavoriteButton.tsx';
 
 export default function MovieCardFooter({moveId}: MovieCardFooterProps) {
-  const [userFavoriteMovieIds, setUserFavoriteMoveIds] = useState([5]);
+  const [userFavoriteMovieIds, setUserFavoriteMoveIds] = useState<string[]>([]);
   const isFavorites = userFavoriteMovieIds.includes(moveId);
 
   const handleUserFavoriteMovie = () => {

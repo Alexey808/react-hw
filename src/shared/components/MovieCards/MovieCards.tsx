@@ -7,7 +7,7 @@ export default function MovieCards({movies}: MovieCardsProps) {
     <div className={styles.movies}>
       {movies.map((movie) => {
         return (
-          <MovieCard key={movie.id} movie={movie}/>
+          <MovieCard key={movie.imdb_id} movie={movie}/>
         );
       })}
     </div>
