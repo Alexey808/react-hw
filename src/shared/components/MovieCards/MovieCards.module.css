@@ -1,0 +1,8 @@
+.movies {
+  margin-top: 70px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, max-content));
+  justify-content: center;
+  align-items: center;
+}

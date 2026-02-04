@@ -1,0 +1,24 @@
+.input-container {
+  position: relative;
+}
+
+.input-container input {
+  width: 320px;
+  height: 64px;
+  border-radius: 13px;
+  border: 1px solid #323B54;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  font-size: 18px;
+  padding: 0 16px;
+}
+
+.input-container input.with-left-icon {
+  padding-left: 60px;
+}
+
+.input-container img {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}

@@ -1,0 +1,11 @@
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-button.active {
+  color: var(--text-color);
+}
+.link-button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+
+.has-favorites {
+  color: rgba(55, 216, 167, 1);
+}
+.has-favorites>svg {
+  color: rgba(55, 216, 167, 1);
+}
+
+svg {
+  width: 25px;
+  height: 25px;
+}
+
+button {
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(123, 110, 246, 1);
+  border: none;
+  padding: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button>svg, button>img {
+  margin-right: 10px;
+  height: 30px;
+}
