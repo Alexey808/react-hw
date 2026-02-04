@@ -1,7 +1,7 @@
 import styles from './Header.module.css';
-import LinkButton from '../../shared/components/LinkButton/LinkButton';
-import Menu from './components/Menu/Menu';
-import logoIcon from '../../assets/logo.svg';
+import LinkButton from '../../../../shared/components/LinkButton/LinkButton.tsx';
+import Menu from './components/Menu/Menu.tsx';
+import logoIcon from '../../../../assets/logo.svg';
 
 
 function Header() {

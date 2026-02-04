@@ -3,6 +3,7 @@ import Layout from '../components/Layout/Layout.tsx';
 import {getMovieInfoById} from '../api/helperApi.tsx';
 import Loader from '../shared/components/Loader/Loader.tsx';
 import {lazy, Suspense} from 'react';
+import {AuthGuard} from '../components/Layout/components/AuthGuard.tsx';
 
 const Login = lazy(() => import('../components/Login/Login.tsx'));
 const SearchMoviesPage = lazy(() => import('../components/SearchMoviesPage/SearchMoviesPage.tsx'));
@@ -20,30 +21,42 @@ export const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <Suspense fallback={<Loader/>}>
-          <Login/>
-        </Suspense>
+        element:
+          <Suspense fallback={<Loader/>}>
+            <Login/>
+          </Suspense>
       },
       {
         path: '/search-movies',
-        element: <Suspense fallback={<Loader/>}>
-          <SearchMoviesPage/>
-        </Suspense>,
+        element:
+          <AuthGuard>
+            <Suspense fallback={<Loader/>}>
+              <SearchMoviesPage/>
+            </Suspense>
+          </AuthGuard>,
       },
       {
         path: '/movie/:id',
-        element: <Suspense fallback={<Loader/>}>
-          <MoviePage/>
-        </Suspense>,
+        element:
+          <AuthGuard>
+            <Suspense fallback={<Loader/>}>
+              <MoviePage/>
+            </Suspense>
+          </AuthGuard>,
         errorElement: <Loader/>,
         loader: async ({params}) => {
           return await getMovieInfoById(`${params.id}`);
-          // return { data: await getMovieInfoById(`${params.id}`) };
         }
       },
       {
         path: '/favorite-movies',
-        element: <FavoriteMoviesPage/>
+        errorElement: <Loader/>,
+        element:
+          <AuthGuard>
+            <Suspense fallback={<Loader/>}>
+              <FavoriteMoviesPage/>
+            </Suspense>
+          </AuthGuard>,
       }
     ]
   }

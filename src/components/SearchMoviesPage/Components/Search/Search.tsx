@@ -12,7 +12,7 @@ import {useEnterKey} from '../../../../shared/hooks/useEnterKey/useEnterKey.tsx'
 function Search({searchMovie}: SearchProps) {
   const hint = 'Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.';
   
-  const [movieName, setMovieName] = useState('Avengers');
+  const [movieName, setMovieName] = useState('');
   const handleChangeName = (e: ChangeEvent<HTMLInputElement>) => {
     setMovieName(e.target.value);
   };

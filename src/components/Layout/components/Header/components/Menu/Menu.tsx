@@ -1,9 +1,9 @@
 import styles from './Menu.module.css';
-import LinkButton from '../../../../shared/components/LinkButton/LinkButton.tsx';
-import exitIcon from '../../../../assets/exit.svg';
-import userIcon from '../../../../assets/user.svg';
+import LinkButton from '../../../../../../shared/components/LinkButton/LinkButton.tsx';
+import exitIcon from '../../../../../../assets/exit.svg';
+import userIcon from '../../../../../../assets/user.svg';
 import { useContext } from 'react';
-import { ActiveUser, ActiveUserContext } from '../../../../shared/contexts/ActiveUserContext/ActiveUserContext.context.ts';
+import { ActiveUser, ActiveUserContext } from '../../../../../../shared/contexts/ActiveUserContext/ActiveUserContext.context.ts';
 
 function Menu() {
   const { name, isLogined, logoutActiveUser, setActiveUser } = useContext<ActiveUserContext>(ActiveUser);
