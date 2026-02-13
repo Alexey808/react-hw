@@ -1,0 +1,29 @@
+.menu {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  gap: 16px;
+  color: var(--additional-text-color);
+}
+
+.menu-item {
+  padding: 16px 12px;
+}
+
+.favorite-movie-counter {
+  padding: 3px 7px;
+  border-radius: 20px;
+  background-color: var(--primary-color400);
+  color: var(--text-color);
+  margin-left: 10px;
+  width: 15px;
+  text-align: center;
+}
+
+.exit-icon {
+  display: grid;
+  align-items: center;
+  margin-left: 8px;
+}

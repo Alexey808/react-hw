@@ -1,0 +1,12 @@
+.login-card {
+  display: grid;
+  margin-top: 80px;
+}
+
+.title {
+  margin-bottom: 28px !important;
+}
+
+.buttons {
+  margin-top: 28px;
+}
