@@ -1,6 +1,6 @@
 import {createBrowserRouter, redirect} from 'react-router-dom';
 import Layout from '../components/Layout/Layout.tsx';
-import {getMovieInfoById} from '../api/helperApi.tsx';
+import {getMovieInfoById} from '../api/api.tsx';
 import Loader from '../shared/components/Loader/Loader.tsx';
 import {lazy, Suspense} from 'react';
 import {AuthGuard} from '../components/Layout/components/AuthGuard.tsx';

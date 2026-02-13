@@ -3,16 +3,20 @@ import {useState} from 'react';
 import {Movie} from '../../shared/models/movie/movie.interface.ts';
 import MovieCards from '../../shared/components/MovieCards/MovieCards.tsx';
 import NoMoviesFound from './Components/NoMoviesFound/NoMoviesFound.tsx';
-import {getMoviesByName} from '../../api/helperApi.tsx';
+import {getMoviesByName} from '../../api/api.tsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, AppStore} from '../../store/store.ts';
+import {loadMoviesByName} from '../../store/moviesSlice/movies.slice.ts';
 
 
 export default function SearchMoviesPage() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const {movies} = useSelector((state: AppStore) => state.moviesStore);
   const [searchByName, setSearchByName] = useState('');
 
+  const dispatch = useDispatch<AppDispatch>();
+
   const loadData = async (name: string) => {
-      const movies = await getMoviesByName(name);
-      setMovies(movies);
+      dispatch(loadMoviesByName(name));
   };
 
   const searchMovie = (movieName: string) => {

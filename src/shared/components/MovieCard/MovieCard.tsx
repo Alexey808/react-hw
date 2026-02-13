@@ -25,7 +25,7 @@ export default function MovieCard({movie}: MovieCardProps) {
         <div className={styles.name}>
           {title}
         </div>
-        <MovieCardFooter moveId={imdb_id}/>
+        <MovieCardFooter movie={movie}/>
       </div>
     </Link>
   );

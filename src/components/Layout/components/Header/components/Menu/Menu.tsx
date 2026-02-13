@@ -2,15 +2,18 @@ import styles from './Menu.module.css';
 import LinkButton from '../../../../../../shared/components/LinkButton/LinkButton.tsx';
 import exitIcon from '../../../../../../assets/exit.svg';
 import userIcon from '../../../../../../assets/user.svg';
-import { useContext } from 'react';
-import { ActiveUser, ActiveUserContext } from '../../../../../../shared/contexts/ActiveUserContext/ActiveUserContext.context.ts';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, AppStore} from '../../../../../../store/store.ts';
+import {userSliceAction} from '../../../../../../store/userSlice/user.slice.ts';
 
 function Menu() {
-  const { name, isLogined, logoutActiveUser, setActiveUser } = useContext<ActiveUserContext>(ActiveUser);
+  const favoriteMovieCounter = useSelector((store: AppStore) => store.favoritesStore.favoriteMovies.length)
+  const { user } = useSelector((store: AppStore) => store.userStore);
 
+  const dispatch = useDispatch<AppDispatch>();
   const logout = () => {
-    if (isLogined && !!logoutActiveUser) {
-      logoutActiveUser();
+    if (user) {
+      dispatch(userSliceAction.removeUser());
     }
   };
 
@@ -25,21 +28,21 @@ function Menu() {
       <div className={styles['menu-item']}>
         <LinkButton url='/favorite-movies'>
           <span>Мои&nbsp;фильмы</span>
-          <span className={styles['notification-icon']}></span>
+          {favoriteMovieCounter > 0 && <span className={styles['favorite-movie-counter']}>{favoriteMovieCounter}</span>}
         </LinkButton>
       </div>
 
-      { isLogined &&
+      { user &&
         <div className={styles['menu-item']}>
           <LinkButton url='/login'>
-            <span>{name}</span>
+            <span>{user.name}</span>
           </LinkButton>
         </div>
       }
 
       <div className={styles['menu-item']}>
         <LinkButton onClick={logout} url='/login'>
-          {isLogined ? (
+          {user ? (
             <>
               <span>Выйти</span>
               <span className={styles['exit-icon']}>

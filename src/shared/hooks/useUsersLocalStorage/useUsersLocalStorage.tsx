@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { User } from '../../models/user/user.interface';
 import { SetUsers } from './useUsersLocalStorage.interface';
-
-const UsersLocalStorageKey = 'users';
+import {UsersLocalStorageKey} from '../../../store/storage.ts';
 
 
 export function useUsersLocalStorage(): [User[], SetUsers] {

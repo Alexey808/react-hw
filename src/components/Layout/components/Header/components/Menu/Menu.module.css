@@ -12,7 +12,15 @@
   padding: 16px 12px;
 }
 
-.notification-icon {}
+.favorite-movie-counter {
+  padding: 3px 7px;
+  border-radius: 20px;
+  background-color: var(--primary-color400);
+  color: var(--text-color);
+  margin-left: 10px;
+  width: 15px;
+  text-align: center;
+}
 
 .exit-icon {
   display: grid;

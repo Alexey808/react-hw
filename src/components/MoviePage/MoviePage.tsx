@@ -4,18 +4,32 @@ import {MockMovies} from '../../shared/models/movie/MockMovies.ts';
 import FavoriteButton from '../../shared/components/FavoriteButton/FavoriteButton.tsx';
 import RatingTag from '../../shared/components/RatingTag/RatingTag.tsx';
 import {ShortMovieInfo} from '../../shared/models/movie/movieInfo.interface.ts';
-import {Suspense} from 'react';
+import {Suspense, useEffect} from 'react';
 import Loader from '../../shared/components/Loader/Loader.tsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, AppStore} from '../../store/store.ts';
+import {favoriteActions} from '../../store/favoriteSlice/favorite.slice.ts';
 
 export default function MoviePage() {
   const { id } = useParams();
+  const dispatch = useDispatch<AppDispatch>();
   const shortMovieInfo = useLoaderData<ShortMovieInfo>();
+  const isFavoriteMovie = useSelector((store: AppStore) => !!store.favoritesStore.favoriteMovies.find(
+    (m) => m.imdb_id === id)
+  );
 
-  console.log('component movieInfo', shortMovieInfo);
+  const { movies } = useSelector((state: AppStore) => state.moviesStore);
 
-  const movie = MockMovies.find((m) => m.id === Number(id))!;
-  const mockFavorite = true;
-  const mockAddToFavoriteMovie = () => {}
+  const handleAddMovieToFavoriteMovie = () => {
+    if (isFavoriteMovie && id) {
+      dispatch(favoriteActions.removeMovie(id));
+    } else {
+      const movieInfoFromMovieList = movies.find((movie) => movie.imdb_id === id);
+      if (movieInfoFromMovieList && !isFavoriteMovie) {
+        dispatch(favoriteActions.addMovie(movieInfoFromMovieList));
+      }
+    }
+  }
 
   return (
     <div className={styles['movie-page']}>
@@ -32,8 +46,7 @@ export default function MoviePage() {
         <div className={styles['description']}>
           <div className={styles['description-info']}>{shortMovieInfo.description}</div>
           <div className={styles['buttons']}>
-            {/*<RatingTag value={shortMovieInfo.review.reviewRating.ratingValue}/>*/}
-            <FavoriteButton click={mockAddToFavoriteMovie} isFavorite={mockFavorite}/>
+            <FavoriteButton onClick={handleAddMovieToFavoriteMovie} isFavorite={isFavoriteMovie}/>
           </div>
           <div className={styles['description-row']}>
             <div className={styles['description-label']}>Тип</div>

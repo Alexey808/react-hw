@@ -1,11 +1,12 @@
-import {ReactNode, useContext} from 'react';
+import {ReactNode} from 'react';
 import {Navigate} from 'react-router-dom';
-import {ActiveUser} from '../../../shared/contexts/ActiveUserContext/ActiveUserContext.context.ts';
+import {useSelector} from 'react-redux';
+import {AppStore} from '../../../store/store.ts';
 
 export function AuthGuard({children}: { children: ReactNode }) {
-  const {isLogined} = useContext(ActiveUser);
+  const { user } = useSelector((store: AppStore) => store.userStore)
 
-  if (!isLogined) {
+  if (!user) {
     return <Navigate to='/login' replace/>
   }
 

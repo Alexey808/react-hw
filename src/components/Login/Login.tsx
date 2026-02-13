@@ -2,21 +2,21 @@ import styles from "./Login.module.css";
 import Title from "../../shared/components/Title/Title";
 import Input from "../../shared/components/Input/Input";
 import Button from "../../shared/components/Button/Button";
-import {ChangeEvent, useContext, useState} from 'react';
-import {
-  ActiveUser,
-} from '../../shared/contexts/ActiveUserContext/ActiveUserContext.context';
+import {ChangeEvent, useState} from 'react';
 import { useUsersLocalStorage } from '../../shared/hooks/useUsersLocalStorage/useUsersLocalStorage';
 import { User } from '../../shared/models/user/user.interface';
 import {useEnterKey} from '../../shared/hooks/useEnterKey/useEnterKey.tsx';
 import {useNavigate} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../store/store.ts';
+import {userSliceAction} from '../../store/userSlice/user.slice.ts';
 
 export default function Login() {
   const [user, setUser] = useState<User | null>(null);
   const [userStore, setUserStore] = useUsersLocalStorage();
-  const {setActiveUser} = useContext(ActiveUser);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleChangeUserName = (e: ChangeEvent<HTMLInputElement>) => {
     setUser({ name: e.target.value, isLogined: false });
@@ -28,17 +28,17 @@ export default function Login() {
 
     if (userNames.includes(currentUserName)) {
       const cacheUser = userStore.find((item) => item.name === currentUserName);
-      if (!!setActiveUser && !!cacheUser) {
-        setActiveUser({...cacheUser, isLogined: true});
+      if (!!cacheUser) {
+        dispatch(userSliceAction.addUser(cacheUser))
         navigate('/favorite-movies');
       }
 
     } else {
-      const newUser = { name: user?.name || '', isLogined: true};
-      
-      if (!!setActiveUser) {
+      const userName = user?.name || '';
+      if (userName) {
+        const newUser = { name: userName, isLogined: true};
         setUserStore([...userStore, newUser]);
-        setActiveUser(newUser);
+        dispatch(userSliceAction.addUser(newUser))
         navigate('/favorite-movies');
       }
     }
